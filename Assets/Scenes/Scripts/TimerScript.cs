@@ -12,7 +12,7 @@ public class TimerScript : MonoBehaviour
     {
         timerText.text = timerDuration.ToString();
         _currentTIme = timerDuration;
-        gamePanel.SetActive(true);
+        gamePanel.SetActive(false);
     }
 
     void Update()
@@ -24,7 +24,7 @@ public class TimerScript : MonoBehaviour
 
             Time.timeScale = 0f;
             
-            // gamePanel.SetActive(true);
+            gamePanel.SetActive(true);
         }
          timerText.text = Mathf.CeilToInt(_currentTIme).ToString();
 
