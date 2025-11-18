@@ -38,11 +38,13 @@ public class PlayerScript : MonoBehaviour
         // rotation of player
         if (transform.position.y > -3f)
         {
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            rb.MoveRotation(angle);
-        }else{
             rb.MoveRotation(0f);
+            // float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            // rb.MoveRotation(angle);
         }
+        // else{
+        // //     
+        // // }
         
     }
 
