@@ -7,7 +7,7 @@ public class PlayerScript : MonoBehaviour
     public PointerScript pointerScript;
     private Vector2 direction;
 
-
+    public SoundManager soundManager;
 
 
     void Start()
@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour
         Application.targetFrameRate = 60;
         QualitySettings.vSyncCount = 0;
 
+        soundManager = FindFirstObjectByType<SoundManager>();
         pointerScript = FindFirstObjectByType<PointerScript>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -25,6 +26,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             PropelForce(direction);
+            PopSOund();
         }
     }
 
@@ -46,5 +48,11 @@ public class PlayerScript : MonoBehaviour
 
     void PropelForce(Vector2 direction){
         rb.AddForce(direction * 10f,ForceMode2D.Impulse);
+    }
+
+    void PopSOund(){
+        if(soundManager != null){
+            soundManager.PlayFartSound();
+        }
     }
 }
