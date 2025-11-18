@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
+
+
 
 public class PanelScript : MonoBehaviour
 {
@@ -49,5 +53,10 @@ public class PanelScript : MonoBehaviour
         b2rt.offsetMax = Vector2.zero;
 
         button2.GetComponentInChildren<TextMeshProUGUI>().text = "End";
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(1);
     }
 }

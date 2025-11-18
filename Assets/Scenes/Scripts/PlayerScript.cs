@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rb;
     public PointerScript pointerScript;
     private Vector2 direction;
+    public float gravityNumber;
 
     public SoundManager soundManager;
 
@@ -18,6 +19,7 @@ public class PlayerScript : MonoBehaviour
         soundManager = FindFirstObjectByType<SoundManager>();
         pointerScript = FindFirstObjectByType<PointerScript>();
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = gravityNumber;
     }
 
     void Update()
@@ -49,7 +51,7 @@ public class PlayerScript : MonoBehaviour
     }
 
     void PropelForce(Vector2 direction){
-        rb.AddForce(direction * 10f,ForceMode2D.Impulse);
+        rb.AddForce(direction * 8f,ForceMode2D.Impulse);
     }
 
     void PopSOund(){
