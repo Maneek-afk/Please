@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class PanelScript : MonoBehaviour
 {
-    
     public Button button1;
     public Button button2;
     public TextMeshProUGUI gameOverText;
