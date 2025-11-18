@@ -53,8 +53,6 @@ public class PlayerScript : MonoBehaviour
     }
 
     void PopSOund(){
-        if(soundManager != null){
-            soundManager.PlayFartSound();
-        }
+        soundManager?.PlayFartSound();
     }
 }
