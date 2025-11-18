@@ -7,8 +7,11 @@ public class PlayerScript : MonoBehaviour
     public PointerScript pointerScript;
     private Vector2 direction;
     public float gravityNumber;
+    public float fartLoss = 7f;
+    public float moveSpeed = 5f;
 
     public SoundManager soundManager;
+    public FartManagerScrýpt fartManager;
 
 
     void Start()
@@ -25,10 +28,24 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         direction = pointerScript.direction;
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (Input.GetKeyDown(KeyCode.Space) && fartManager.maxFartMeter > 0)
         {
             PropelForce(direction);
-            PopSOund();
+            soundManager.PlayFartSound();
+            fartManager.FartLoss(fartLoss);
+            
+            
+        }
+
+        if(Input.GetKey(KeyCode.A)){
+            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            Debug.Log("a pressed");
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            Debug.Log("d pressed");
         }
     }
 
@@ -41,12 +58,9 @@ public class PlayerScript : MonoBehaviour
         if (transform.position.y > -3f)
         {
             rb.MoveRotation(0f);
-            // float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            // rb.MoveRotation(angle);
+ 
         }
-        // else{
-        // //     
-        // // }
+      
         
     }
 
